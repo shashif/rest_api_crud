@@ -52,6 +52,8 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       var  titles= _titleEditingController.text;
                       apiService.sendAlbum(titles);
+                      _titleEditingController.clear();
+
                     },
                     child: Text('Save'),
                   ),
