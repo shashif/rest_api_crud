@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
 
 
   getData() async{
-    tasks = await apiService.getAlbum();
+    tasks = await apiService.getData();
     print(tasks);
   }
   @override
