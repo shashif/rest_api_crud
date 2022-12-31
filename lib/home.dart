@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   var _titleEditingController = TextEditingController();
   ApiService apiService = ApiService();
-  var tasks = [];
+  List tasks = [];
 
 
 
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
 
 
   getData() async{
-    tasks = await apiService.getData();
+    tasks = await apiService.getAlbum();
     print(tasks);
   }
   @override
@@ -54,11 +54,11 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 
-                ...tasks.map((e)  {
+                ...tasks.map((value)  {
                   return CustomCard(
                     deleteFunction: () {},
                     updateFunction: () {},
-                    title: e["title"],
+                    title: value["title"],
                   );
                 })
 
