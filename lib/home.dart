@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   var _titleEditingController = TextEditingController();
   ApiService apiService = ApiService();
-  List tasks = [];
+  var tasks = [];
 
 
 
@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
 
   getData() async{
     tasks = await apiService.getAlbum();
-    print(tasks);
+    // print(tasks);
   }
   @override
   Widget build(BuildContext context) {
@@ -49,16 +49,19 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      var  titles= _titleEditingController.text;
+                      apiService.sendAlbum(titles);
+                    },
                     child: Text('Save'),
                   ),
                 ),
-                
-                ...tasks.map((value)  {
+
+                ...tasks.map((e)  {
                   return CustomCard(
                     deleteFunction: () {},
                     updateFunction: () {},
-                    title: value["title"],
+                    title: e["title"],
                   );
                 })
 
