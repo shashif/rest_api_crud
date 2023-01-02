@@ -24,7 +24,7 @@ class ApiService{
       'Content-Type': 'application/json; charset=UTF-8',
       }
     );
-    print( "response.statusCode : ${response.statusCode}");
+    print( "response.statusCode : ${response.statusCode} And Insert data Successfully");
     if (response.statusCode==201) {
       return jsonDecode(response.body);
     }
