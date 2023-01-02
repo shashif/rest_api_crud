@@ -23,6 +23,9 @@ class _HomeState extends State<Home> {
 
   getData() async {
     tasks = await apiService.getAlbum();
+    setState(() {
+      this.tasks=tasks;
+    });
     // print(tasks);
   }
 
